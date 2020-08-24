@@ -3,8 +3,8 @@ class PostsController < ApplicationController
     @posts = Post.all.order(id: "DESC")  # すべてのレコードを@postsに代入
   end
   def create
-    post = Post.create(content: params[:content], checked: false)
-    render json:{ post: post }
+    Post.create(content: params[:content])
+    redirect_to action: :index
   end
 
 def checked
